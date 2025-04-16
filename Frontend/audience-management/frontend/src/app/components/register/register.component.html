@@ -1,0 +1,67 @@
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4 m-10 items-center">
+  <div class="bg-blue-50 rounded-lg p-7 shadow-lg h-full flex flex-col items-center justify-center">
+    <img src={{banner}} alt="Conference" class="w-1/2 mx-auto mb-6" />
+    <h2 class="text-3xl font-bold mb-4 text-blue-800 italic text-center">Paper Conference 2025</h2>
+  </div>
+
+  <form (ngSubmit)="registerAudience()" [formGroup]="registerForm"
+    class="flex flex-col gap-4 shadow-lg p-8 bg-white rounded-lg">
+    <h2 class="text-2xl font-bold text-center">Register</h2>
+    <img src={{user}} alt="Team" class="w-32 h-32 mx-auto mb-4" />
+
+    <div class="w-full flex flex-col gap-1">
+      <input class="input-style" placeholder="Full name" type="text" formControlName="full_name" required />
+      <div class="error-msg" *ngIf="registerForm.get('full_name')?.invalid && registerForm.get('full_name')?.touched">
+        Name is required (min 3 characters)</div>
+    </div>
+
+    <div class="w-full flex flex-col gap-1">
+      <input class="input-style" placeholder="email@gmail.com" type="email" formControlName="email" required />
+      <div class="error-msg" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">Valid
+        email required</div>
+    </div>
+
+    <div class="w-full flex flex-col gap-1">
+      <input class="input-style" placeholder="Enter password" type="password" formControlName="password" required />
+      <div class="error-msg" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+        Password must be 6+ characters</div>
+    </div>
+
+    <div class="w-full flex flex-col gap-1">
+      <input class="input-style" placeholder="Confirm password" type="password" formControlName="confirm_password"
+        required />
+      <div class="error-msg" *ngIf="registerForm.hasError('passwordMismatch')">Passwords do not match</div>
+    </div>
+
+
+
+    <div class="w-full flex flex-col gap-1">
+      <input class="input-style" placeholder="Phone number" type="text" formControlName="phone_no" required />
+      <div class="error-msg" *ngIf="registerForm.get('phone_no')?.invalid && registerForm.get('phone_no')?.touched">
+        Phone must be 10 digits</div>
+    </div>
+
+    <div class="w-full flex flex-col gap-1">
+      <input class="input-style" placeholder="Organization" type="text" formControlName="affilation" required />
+      <div class="error-msg" *ngIf="registerForm.get('affilation')?.invalid && registerForm.get('affilation')?.touched">
+        Affiliation is required</div>
+    </div>
+
+    <div class="w-full flex flex-col gap-1">
+      <label for="conference_id" class="text-sm text-gray-600">Select Conference</label>
+      <select id="conference_id" formControlName="conference_id" required class="input-style">
+        <option *ngFor="let conference of conferences" [value]="conference.id">
+          {{ conference.title }} ({{ conference.date }})
+        </option>
+      </select>
+    </div>
+    <button type="submit"
+      class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-all text-xl font-semibold">Register</button>
+
+    <div class="text-center mt-4">
+      <p class="text-md text-gray-600">Already a user?
+        <a href="/" class="text-blue-600 hover:underline font-medium">Login to your account</a>
+      </p>
+    </div>
+  </form>
+</section>

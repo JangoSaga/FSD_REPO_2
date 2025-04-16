@@ -1,0 +1,42 @@
+<div class="p-8 m-2 flex flex-col shadow-lg rounded-lg bg-white">
+  <div class="flex flex-col gap-4">
+    <div>
+      <h3 class="text-3xl font-bold mb-2">👋 Welcome {{user.full_name}}</h3>
+      <p class="text-gray-600 mb-6">Manage your profile and explore features.</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg  mb-3 shadow-md">
+      <h4 class="text-xl font-semibold mb-4">🎤 Conference You're Participating In</h4>
+      <table class="min-w-full text-left border border-gray-200 ">
+        <tbody>
+          <tr class="border-b">
+            <th class="px-4 py-2 font-medium bg-gray-100 w-1/4">Title</th>
+            <td class="px-4 py-2">{{conference.title}}</td>
+          </tr>
+          <tr class="border-b">
+            <th class="px-4 py-2 font-medium bg-gray-100">Date</th>
+            <td class="px-4 py-2">{{conference.date}}</td>
+          </tr>
+          <tr class="border-b">
+            <th class="px-4 py-2 font-medium bg-gray-100">Time</th>
+            <td class="px-4 py-2">{{conference.time}}</td>
+          </tr>
+          <tr class="border-b">
+            <th class="px-4 py-2 font-medium bg-gray-100">Location</th>
+            <td class="px-4 py-2">{{conference.location}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="flex flex-row gap-2 mb-3">
+      <button class="bg-blue-600 text-white py-3 px-4 rounded hover:bg-blue-700">📅 View Schedule</button>
+      <button class="bg-green-600 text-white py-3 px-4 rounded hover:bg-green-700">🔗 Join Conference</button>
+      <button class="bg-purple-600 text-white py-3 px-4 rounded hover:bg-purple-700">🎓 View Certificate</button>
+    </div>
+  </div>
+
+  <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded">
+    ⏳ Only <strong>{{dayLeft}} days</strong> left until the conference!
+  </div>
+</div>
